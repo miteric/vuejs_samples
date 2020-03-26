@@ -5,12 +5,33 @@
       <li class="links">
         <router-link to="/">Home</router-link>
       </li>
-      <li class="links">
-        <router-link to="/about">About</router-link>
+      <li
+        v-for="destination in destinations"
+        :key="destination.name"
+        class="links"
+      >
+        <router-link
+          :to="{ name: 'DestDetails', params: { slug: destination.slug } }"
+        >
+          {{ destination.name }}
+        </router-link>
       </li>
     </ul>
   </nav>
 </template>
+
+<script>
+import store from "@/store.js";
+
+export default {
+  data() {
+    return {
+      //entityId: this.$route.params.id,
+      destinations: store.destinations
+    };
+  }
+};
+</script>
 
 <style scoped>
 #nav {
