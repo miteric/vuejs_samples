@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <MyNavibar />
     <router-view :key="$route.path" />
   </div>
 </template>
+<script>
+import MyNavibar from "@/components/MyNavibar";
+
+export default {
+  components: {
+    MyNavibar
+  }
+};
+</script>
 
 <style>
 #app {
