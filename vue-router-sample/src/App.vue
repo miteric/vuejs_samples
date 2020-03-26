@@ -2,8 +2,8 @@
   <div id="app">
     <MyNavibar />
     <!-- <transition name="slide" mode="out-in"> -->
-    <!-- <transition name="fade"> -->
-    <transition name="moveUp">
+    <!-- <transition name="moveUp" mode="out-in"> -->
+    <transition name="fade" mode="out-in">
       <router-view :key="$route.path" />
     </transition>
   </div>
@@ -28,7 +28,7 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.4s;
+  transition: opacity 0.3s;
 }
 .fade-enter,
 .fade-leave-to {
