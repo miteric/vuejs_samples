@@ -7,6 +7,32 @@
         <p>{{ destination.description }}</p>
       </div>
     </section>
+    <section class="experiences">
+      <h2>TOP experiences in {{ destination.name }}</h2>
+      <div class="cards">
+        <div
+          v-for="experience in destination.experiences"
+          :key="experience.slug"
+          class="card"
+        >
+          <router-link
+            :to="{
+              name: 'ExperienceDetails',
+              params: { experienceSlug: experience.slug }
+            }"
+          >
+            <img
+              :src="require('@/assets/' + experience.image)"
+              alt="experience.name"
+            />
+            <span class="card_text">
+              {{ experience.name }}
+            </span>
+          </router-link>
+        </div>
+      </div>
+      <router-view :key="$route.path" />
+    </section>
   </div>
 </template>
 

@@ -8,6 +8,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
+    props: true,
     component: Home
   },
   {
@@ -17,7 +18,18 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "DestDetails" */ "../views/DestinationDetails.vue"
-      )
+      ),
+    children: [
+      {
+        path: ":experienceSlug",
+        name: "ExperienceDetails",
+        props: true,
+        component: () =>
+          import(
+            /* webpackChunkName: "ExperienceDetails" */ "../views/ExperienceDetails.vue"
+          )
+      }
+    ]
   },
   {
     path: "/404",
