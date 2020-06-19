@@ -11,8 +11,6 @@
   </section>
 </template>
 <script>
-import store from "@/store.js";
-
 export default {
   props: {
     slug: {
@@ -26,7 +24,8 @@ export default {
   },
   computed: {
     destination() {
-      return store.destinations.find(
+      // eslint-disable-next-line no-undef
+      return MEApp.mystore.destinations.find(
         destination => destination.slug === this.slug
       );
     },

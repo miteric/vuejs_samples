@@ -25,14 +25,15 @@
 </template>
 
 <script>
-import store from "../store.js";
+// import store from "../store.js";
 
 export default {
   name: "home",
   components: {},
   data() {
     return {
-      destinations: store.destinations
+      // eslint-disable-next-line no-undef
+      destinations: MEApp.mystore.destinations
     };
   }
 };

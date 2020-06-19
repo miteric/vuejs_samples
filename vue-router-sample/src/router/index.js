@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import store from "../store.js";
 
 Vue.use(VueRouter);
 
@@ -32,7 +31,8 @@ const routes = [
       }
     ],
     beforeEnter: (to, from, next) => {
-      const exists = store.destinations.find(
+      // eslint-disable-next-line no-undef
+      const exists = MEApp.mystore.destinations.find(
         destination => destination.slug === to.params.slug
       );
       if (exists) {

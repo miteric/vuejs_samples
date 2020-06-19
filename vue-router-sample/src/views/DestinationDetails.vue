@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import store from "@/store.js";
 import GoBack from "@/components/GoBack";
 
 export default {
@@ -54,7 +53,8 @@ export default {
   },
   computed: {
     destination() {
-      return store.destinations.find(
+      // eslint-disable-next-line no-undef
+      return MEApp.mystore.destinations.find(
         destination => destination.slug === this.slug
       );
     }
